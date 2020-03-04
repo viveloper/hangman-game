@@ -38,8 +38,7 @@ function displayWord() {
   `;
   const innerWord = wordEl.innerText.replace(/\n/g, '');
   if (innerWord === selectedWord) {
-    finalMessage.innerText = 'Congratulations! You won!';
-    popup.style.display = 'flex';
+    popupVictory();
   }
 }
 
@@ -62,9 +61,18 @@ function updateWrongLettersEl() {
 
   // check if lost
   if (figureParts.length === wrongLetters.length) {
-    finalMessage.innerText = 'Unfortunately you lost.';
-    popup.style.display = 'flex';
+    popupLost();
   }
+}
+
+function popupVictory() {
+  finalMessage.innerText = 'Congratulations! You won!';
+  popup.style.display = 'flex';
+}
+
+function popupLost() {
+  finalMessage.innerText = 'Unfortunately you lost.';
+  popup.style.display = 'flex';
 }
 
 // show notification
